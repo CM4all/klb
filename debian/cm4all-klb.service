@@ -1,0 +1,41 @@
+[Unit]
+Description=CM4all Kernel Load Balancer
+Requires=avahi-daemon.service
+After=avahi-daemon.service
+
+[Service]
+Type=notify
+ExecStart=/usr/sbin/cm4all-klb
+
+# This service doesn't care which user it runs as, it only needs
+# CAP_NET_ADMIN
+DynamicUser=yes
+
+# Needed for IPVS manipulation
+AmbientCapabilities=CAP_NET_RAW CAP_NET_ADMIN
+
+# This allows the kernel to merge CPU wakeups, the default of 50ns is
+# too fine.
+TimerSlackNSec=10ms
+
+# Limit memory usage to avoid the global oomkiller when this service
+# leaks
+LimitRSS=256M
+MemoryMax=512M
+
+# 1 MB is more than enough; the default is 8 MB, which is excessive
+LimitSTACK=1M
+
+TasksMax=32
+
+# Paranoid security settings
+NoNewPrivileges=yes
+ProtectSystem=yes
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_UNIX
+RestrictNamespaces=yes
+
+[Install]
+WantedBy=multi-user.target
