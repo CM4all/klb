@@ -1,4 +1,4 @@
-project('CM4all klb', 'cpp', version: '0.1',
+project('CM4all klb', 'cpp', version: '0.2',
   meson_version: '>= 0.56',
   default_options: [
     'c_std=c11',
