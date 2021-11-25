@@ -72,7 +72,7 @@ can either use static service files in
 ``/usr/bin/avahi-publish-service`` (launched as daemon along with the
 daemon which actually listens on the port) or a daemon which has a
 built-in Zeroconf publisher (e.g. `beng-proxy
-<https://github.com/CM4all/beng-proxy/>`__.
+<https://github.com/CM4all/beng-proxy/>`__).
 
 On workers (where connections will be routed to), routing needs to be
 set up so that reply IP packets are routed through the machine running
