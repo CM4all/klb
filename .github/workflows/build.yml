@@ -40,4 +40,5 @@ jobs:
       - name: Meson Build
         uses: BSFishy/meson-build@v1.0.3
         with:
+          action: all
           meson-version: 0.56.0
