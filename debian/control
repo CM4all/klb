@@ -14,7 +14,9 @@ Vcs-Git: git://github.com/CM4all/klb
 
 Package: cm4all-klb
 Architecture: any
-Depends: ${shlibs:Depends}, systemd-sysv, avahi-daemon
+Depends: ${shlibs:Depends},
+ systemd-sysv, libnss-systemd,
+ avahi-daemon
 Description: IPVS-Zeroconf bridge
  klb is a daemon which populates IPVS services with destinations
  discovered using Zeroconf / DNS-SD.

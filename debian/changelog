@@ -1,6 +1,6 @@
 cm4all-klb (0.2) unstable; urgency=low
 
-  * 
+  * debian: depend on libnss-systemd (for DBus access with DynamicUser=yes)
 
  --   
 
