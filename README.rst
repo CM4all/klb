@@ -76,7 +76,32 @@ built-in Zeroconf publisher (e.g. `beng-proxy
 
 On workers (where connections will be routed to), routing needs to be
 set up so that reply IP packets are routed through the machine running
-this software.
+this software.  If you run it on a dedicated network interface (and
+the default gateway is on a different interface), you can configure a
+routing policy by adding something like that to the
+``systemd.network`` file of that dedicated interface on each worker::
+
+  # Assuming the dedicated interface has network 192.168.99.0/24 and
+  # 192.168.99.1 is the server running "klb"; this creates the routing
+  # table "99", and a route to the interface's network:
+  [Route]
+  Destination=192.168.99.0/24
+  Table=99
+
+  # Now configure the "klb" server as gateway on that routing table:
+  [Route]
+  Gateway=192.168.99.1
+  GatewayOnLink=yes
+  Scope=global
+  Table=99
+
+  # This policy tells the server to use our newly created routing
+  # table for all reply packets to connections which were routed
+  # through "klb", instead of using the default gateway in the
+  # standard routing table:
+  [RoutingPolicyRule]
+  From=192.168.99.0/24
+  Table=99
 
 
 Building the Debian package
