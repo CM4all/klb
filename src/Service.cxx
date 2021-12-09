@@ -120,7 +120,9 @@ Service::OnAvahiNewObject(const std::string &key,
 		/* ignore IPv6 (for now) */
 		return;
 
-	const auto d = ToIpvsDestination(IPv4Address{address});
+	const auto &ipv4 = IPv4Address::Cast(address);
+
+	const auto d = ToIpvsDestination(ipv4);
 
 	if (auto [i, inserted] = destinations.emplace(key, d); !inserted) {
 		try {
