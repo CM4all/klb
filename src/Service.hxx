@@ -54,7 +54,26 @@ class Service final
 
 	IPVS &ipvs;
 
-	std::map<std::string, struct ip_vs_dest_user> destinations;
+	using DestinationMap = std::map<std::string, struct ip_vs_dest_user>;
+	DestinationMap destinations;
+
+	struct CompareAddressPort {
+		constexpr bool operator()(const struct ip_vs_dest_user &a,
+					  const struct ip_vs_dest_user &b) const noexcept
+		{
+			if (a.addr != b.addr)
+				return a.addr < b.addr;
+
+			return a.port < b.port;
+		}
+	};
+
+	/**
+	 * Tracks which addresses are registered as destinations in
+	 * the kernel; the value points into the "destinations" map.
+	 */
+	std::map<struct ip_vs_dest_user, DestinationMap::const_iterator,
+		 CompareAddressPort> addresses;
 
 public:
 	Service(Avahi::Client &avahi_client,

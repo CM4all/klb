@@ -124,15 +124,22 @@ Service::OnAvahiNewObject(const std::string &key,
 
 	const auto d = ToIpvsDestination(ipv4);
 
-	if (auto [i, inserted] = destinations.emplace(key, d); !inserted) {
+	if (auto i = addresses.find(d); i != addresses.end()) {
+		/* the address/port combination exists already in the
+		   kernel; delete the old one from the "destinations"
+		   map, and also delete it from the kernel, because
+		   parameters other than the address/port pair may
+		   have changed */
+
 		try {
-			ipvs.DeleteDestination(service, i->second);
+			ipvs.DeleteDestination(service, i->first);
 		} catch (...) {
 			logger(1, "Failed to delete destination ",
 			       key, ": ", std::current_exception());
 		}
 
-		i->second = d;
+		destinations.erase(i->second);
+		addresses.erase(i);
 	}
 
 	try {
@@ -140,7 +147,11 @@ Service::OnAvahiNewObject(const std::string &key,
 	} catch (...) {
 		logger(1, "Failed to add destination ", key, ": ",
 		       std::current_exception());
+		return;
 	}
+
+	auto [i, _] = destinations.insert_or_assign(key, d);
+	addresses.emplace(d, i);
 }
 
 void
@@ -153,6 +164,10 @@ Service::OnAvahiRemoveObject(const std::string &key) noexcept
 			logger(1, "Failed to delete destination ",
 			       key, ": ", std::current_exception());
 		}
+
+		auto j = addresses.find(i->second);
+		assert(j != addresses.end());
+		addresses.erase(j);
 
 		destinations.erase(i);
 	}

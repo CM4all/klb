@@ -1,5 +1,6 @@
 cm4all-klb (0.2) unstable; urgency=low
 
+  * fix "File exists" errors due to Zeroconf timings
   * debian: depend on libnss-systemd (for DBus access with DynamicUser=yes)
 
  --   
