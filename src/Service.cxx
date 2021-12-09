@@ -126,20 +126,21 @@ Service::OnAvahiNewObject(const std::string &key,
 
 	if (auto i = addresses.find(d); i != addresses.end()) {
 		/* the address/port combination exists already in the
-		   kernel; delete the old one from the "destinations"
-		   map, and also delete it from the kernel, because
-		   parameters other than the address/port pair may
-		   have changed */
+		   kernel; update it (just in case parameters other
+		   than the address/port pair have changed) */
 
 		try {
-			ipvs.DeleteDestination(service, i->first);
+			ipvs.EditDestination(service, i->first);
 		} catch (...) {
-			logger(1, "Failed to delete destination ",
+			logger(1, "Failed to edit destination ",
 			       key, ": ", std::current_exception());
 		}
 
 		destinations.erase(i->second);
-		addresses.erase(i);
+
+		auto [j, _] = destinations.insert_or_assign(key, d);
+		i->second = j;
+		return;
 	}
 
 	try {

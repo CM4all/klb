@@ -91,6 +91,20 @@ IPVS::AddDestination(const struct ip_vs_service_user &service,
 }
 
 void
+IPVS::EditDestination(const struct ip_vs_service_user &service,
+		      const struct ip_vs_dest_user &destination)
+{
+	struct {
+		struct ip_vs_service_user service;
+		struct ip_vs_dest_user destination;
+	} payload = {service, destination};
+
+	if (!socket.SetOption(IPPROTO_IP, IP_VS_SO_SET_EDITDEST,
+			      &payload, sizeof(payload)))
+		throw MakeSocketError("IP_VS_SO_SET_EDITDEST failed");
+}
+
+void
 IPVS::DeleteDestination(const struct ip_vs_service_user &service,
 			const struct ip_vs_dest_user &destination)
 {

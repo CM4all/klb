@@ -48,6 +48,9 @@ public:
 	void AddDestination(const struct ip_vs_service_user &service,
 			    const struct ip_vs_dest_user &destination);
 
+	void EditDestination(const struct ip_vs_service_user &service,
+			     const struct ip_vs_dest_user &destination);
+
 	void DeleteDestination(const struct ip_vs_service_user &service,
 			       const struct ip_vs_dest_user &destination);
 };
