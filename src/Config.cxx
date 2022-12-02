@@ -31,8 +31,8 @@
  */
 
 #include "Config.hxx"
-#include "io/FileLineParser.hxx"
-#include "io/ConfigParser.hxx"
+#include "io/config/FileLineParser.hxx"
+#include "io/config/ConfigParser.hxx"
 #include "net/AllocatedSocketAddress.hxx"
 #include "net/Parser.hxx"
 #include "lib/avahi/Check.hxx"

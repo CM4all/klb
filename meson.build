@@ -122,6 +122,7 @@ libcommon_enable_net_log = false
 
 subdir('libcommon/src/util')
 subdir('libcommon/src/io')
+subdir('libcommon/src/io/config')
 subdir('libcommon/src/system')
 subdir('libcommon/src/event')
 subdir('libcommon/src/net')
@@ -139,6 +140,7 @@ executable(
 
   include_directories: inc,
   dependencies: [
+    io_config_dep,
     event_dep,
     avahi_dep,
     odbus_dep,
