@@ -117,8 +117,6 @@ inc = include_directories('src', 'libcommon/src')
 
 libcommon_enable_c = false
 libcommon_enable_boost = false
-libcommon_enable_libcap = false
-libcommon_enable_net_log = false
 
 subdir('libcommon/src/util')
 subdir('libcommon/src/io')
