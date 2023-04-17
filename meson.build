@@ -115,7 +115,6 @@ libsystemd = dependency('libsystemd')
 
 inc = include_directories('src', 'libcommon/src')
 
-libcommon_enable_c = false
 libcommon_enable_boost = false
 
 subdir('libcommon/src/util')
