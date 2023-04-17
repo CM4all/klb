@@ -119,6 +119,7 @@ libcommon_enable_c = false
 libcommon_enable_boost = false
 
 subdir('libcommon/src/util')
+subdir('libcommon/src/lib/fmt')
 subdir('libcommon/src/io')
 subdir('libcommon/src/io/config')
 subdir('libcommon/src/system')
@@ -138,6 +139,7 @@ executable(
 
   include_directories: inc,
   dependencies: [
+    fmt_dep,
     io_config_dep,
     event_dep,
     avahi_dep,

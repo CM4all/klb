@@ -35,7 +35,7 @@
 #include "IPVS.hxx"
 #include "lib/avahi/Client.hxx"
 #include "net/IPv4Address.hxx"
-#include "system/Error.hxx"
+#include "lib/fmt/SystemError.hxx"
 
 #include <algorithm>
 #include <cstdint>
@@ -74,7 +74,7 @@ ResolveInterfaceName(const char *name)
 {
 	int i = if_nametoindex(name);
 	if (i == 0)
-		throw FormatErrno("Failed to find interface '%s'", name);
+		throw FmtErrno("Failed to find interface '{}'", name);
 
 	return static_cast<AvahiIfIndex>(i);
 }
