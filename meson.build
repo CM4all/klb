@@ -1,7 +1,6 @@
 project('CM4all klb', 'cpp', version: '0.3',
   meson_version: '>= 0.56',
   default_options: [
-    'c_std=c11',
     'cpp_std=c++2a',
     'warning_level=3',
   ],
@@ -93,11 +92,6 @@ test_cxxflags = test_common_flags + [
   '-Wheader-hygiene',
   '-Winconsistent-missing-destructor-override',
 ]
-
-if compiler.get_id() == 'gcc' and compiler.version().version_compare('>=11')
-  # too many bogus warnings, e.g. for std::array::size()
-  test_cxxflags += '-Wno-maybe-uninitialized'
-endif
 
 add_global_arguments(common_flags, language: 'cpp')
 
