@@ -33,8 +33,6 @@ test_common_flags = [
   '-Wvla',
   '-Wwrite-strings',
 
-  '-Wno-unused-result',
-
   # clang specific warning options:
   '-Wunreachable-code-aggressive',
   '-Wused-but-marked-unused',
@@ -89,10 +87,6 @@ test_cxxflags = test_common_flags + [
 
   # a vtable without a dtor is just fine
   '-Wno-non-virtual-dtor',
-
-  # the only warnings we got from this are from formatted error
-  # messages, and their truncation is harmless
-  '-Wno-format-truncation',
 
   # clang specific warning options:
   '-Wcomma',
