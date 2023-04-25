@@ -17,6 +17,7 @@ You need:
 
 - a C++20 compliant compiler (e.g. `GCC <https://gcc.gnu.org/>`__ or
   `clang <https://clang.llvm.org/>`__)
+- `libfmt <https://fmt.dev/>`__
 - `systemd <https://www.freedesktop.org/wiki/Software/systemd/>`__
 - `avahi <https://www.avahi.org/>`__
 - `Meson 0.56 <http://mesonbuild.com/>`__ and `Ninja
