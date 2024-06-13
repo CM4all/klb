@@ -29,11 +29,17 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install -y --no-install-recommends \
+            meson \
             libavahi-client-dev \
             libsystemd-dev
 
-      - name: Meson Build
-        uses: BSFishy/meson-build@v1.0.3
-        with:
-          action: test
-          meson-version: 0.56.0
+      - name: Configure
+        run: |
+          meson setup \
+            -Dauto_features=enabled \
+             --force-fallback-for=fmt \
+            -Dwrap_mode=nofallback \
+            output
+
+      - name: Build
+        run: ninja -C output -v
