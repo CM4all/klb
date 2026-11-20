@@ -2,7 +2,7 @@ Source: cm4all-klb
 Section: non-free/admin
 Priority: extra
 Maintainer: Max Kellermann <mk@cm4all.com>
-Build-Depends: debhelper (>= 13.3~),
+Build-Depends: debhelper-compat (= 13),
  meson (>= 0.56),
  g++ (>= 4:10.2),
  libc6-dev (>= 2.28),
