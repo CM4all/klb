@@ -9,7 +9,7 @@ Build-Depends: debhelper-compat (= 13),
  libfmt-dev (>= 9),
  libsystemd-dev,
  libavahi-client-dev
-Standards-Version: 4.0.0
+Standards-Version: 4.7.4
 Vcs-Browser: https://github.com/CM4all/klb
 Vcs-Git: git://github.com/CM4all/klb
 
