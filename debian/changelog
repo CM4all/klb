@@ -5,7 +5,7 @@ cm4all-klb (0.4) unstable; urgency=low
   * debian: add source/format file
   * debian: use "debhelper-compat" instead of "debian/compat"
 
- --   
+ -- Max Kellermann <max.kellermann@ionos.com>  Fri, 20 Nov 2026 17:10:45 +0100
 
 cm4all-klb (0.3) unstable; urgency=low
 
