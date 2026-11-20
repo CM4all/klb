@@ -6,6 +6,7 @@
 #include "Config.hxx"
 #include "IPVS.hxx"
 #include "lib/avahi/Client.hxx"
+#include "net/InetAddress.hxx"
 #include "net/IPv4Address.hxx"
 #include "lib/fmt/SystemError.hxx"
 
@@ -84,7 +85,7 @@ Service::~Service() noexcept
 
 void
 Service::OnAvahiNewObject(const std::string &key,
-			  SocketAddress address,
+			  const InetAddress &address,
 			  [[maybe_unused]] AvahiStringList *txt) noexcept
 {
 	assert(address.IsDefined());
