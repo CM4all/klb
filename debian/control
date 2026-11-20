@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Max Kellermann <mk@cm4all.com>
 Build-Depends: debhelper-compat (= 13),
- meson (>= 0.56),
+ meson (>= 1.2),
  pkgconf,
  g++ (>= 4:10.2),
  libc6-dev (>= 2.28),

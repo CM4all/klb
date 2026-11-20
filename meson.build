@@ -1,5 +1,5 @@
 project('CM4all klb', 'cpp', version: '0.4',
-  meson_version: '>= 0.56',
+  meson_version: '>= 1.2',
   default_options: [
     'cpp_std=c++20',
     'warning_level=3',
