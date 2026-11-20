@@ -84,7 +84,8 @@ Service::~Service() noexcept
 
 void
 Service::OnAvahiNewObject(const std::string &key,
-			  SocketAddress address) noexcept
+			  SocketAddress address,
+			  [[maybe_unused]] AvahiStringList *txt) noexcept
 {
 	assert(address.IsDefined());
 
