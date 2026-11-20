@@ -9,17 +9,17 @@ cm4all-klb (0.3) unstable; urgency=low
 
   * use libfmt
 
- -- Max Kellermann <mk@cm4all.com>  Tue, 25 Apr 2023 09:16:57 +0200
+ -- Max Kellermann <max.kellermann@ionos.com>  Tue, 25 Apr 2023 09:16:57 +0200
 
 cm4all-klb (0.2) unstable; urgency=low
 
   * fix "File exists" errors due to Zeroconf timings
   * debian: depend on libnss-systemd (for DBus access with DynamicUser=yes)
 
- -- Max Kellermann <mk@cm4all.com>  Thu, 09 Dec 2021 15:02:47 +0100
+ -- Max Kellermann <max.kellermann@ionos.com>  Thu, 09 Dec 2021 15:02:47 +0100
 
 cm4all-klb (0.1) unstable; urgency=low
 
   * initial release
 
- -- Max Kellermann <mk@cm4all.com>  Wed, 24 Nov 2021 21:08:31 +0100
+ -- Max Kellermann <max.kellermann@ionos.com>  Wed, 24 Nov 2021 21:08:31 +0100
