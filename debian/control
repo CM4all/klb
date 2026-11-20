@@ -1,6 +1,6 @@
 Source: cm4all-klb
 Section: non-free/admin
-Priority: extra
+Priority: optional
 Maintainer: Max Kellermann <mk@cm4all.com>
 Build-Depends: debhelper-compat (= 13),
  meson (>= 0.56),
