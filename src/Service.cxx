@@ -46,7 +46,7 @@ ResolveInterfaceName(const char *name)
 {
 	int i = if_nametoindex(name);
 	if (i == 0)
-		throw FmtErrno("Failed to find interface '{}'", name);
+		throw FmtErrno("Failed to find interface {:?}", name);
 
 	return static_cast<AvahiIfIndex>(i);
 }
