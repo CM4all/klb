@@ -85,6 +85,7 @@ Service::~Service() noexcept
 
 void
 Service::OnAvahiNewObject(const std::string &key,
+			  [[maybe_unused]] const char *host_name,
 			  const InetAddress &address,
 			  [[maybe_unused]] AvahiStringList *txt,
 			  [[maybe_unused]] Avahi::ObjectFlags flags) noexcept
