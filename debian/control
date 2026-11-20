@@ -16,7 +16,7 @@ Vcs-Git: https://github.com/CM4all/klb
 
 Package: cm4all-klb
 Architecture: any
-Depends: ${shlibs:Depends},
+Depends: ${misc:Depends}, ${shlibs:Depends},
  systemd-sysv, libnss-systemd,
  avahi-daemon
 Description: IPVS-Zeroconf bridge
