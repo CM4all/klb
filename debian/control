@@ -5,7 +5,7 @@ Maintainer: Max Kellermann <mk@cm4all.com>
 Build-Depends: debhelper-compat (= 13),
  meson (>= 1.2),
  pkgconf,
- g++ (>= 4:10.2),
+ g++ (>= 4:12),
  libc6-dev (>= 2.28),
  libfmt-dev (>= 10),
  libsystemd-dev,

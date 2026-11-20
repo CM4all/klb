@@ -15,7 +15,7 @@ Building klb
 
 You need:
 
-- a C++20 compliant compiler (e.g. `GCC <https://gcc.gnu.org/>`__ or
+- a C++23 compliant compiler (e.g. `GCC <https://gcc.gnu.org/>`__ or
   `clang <https://clang.llvm.org/>`__)
 - `libfmt <https://fmt.dev/>`__
 - `systemd <https://www.freedesktop.org/wiki/Software/systemd/>`__
