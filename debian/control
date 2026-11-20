@@ -1,5 +1,5 @@
 Source: cm4all-klb
-Section: non-free/admin
+Section: admin
 Priority: optional
 Maintainer: Max Kellermann <mk@cm4all.com>
 Build-Depends: debhelper-compat (= 13),
